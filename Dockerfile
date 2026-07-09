@@ -53,4 +53,4 @@ RUN TELEGRAM_ENCRYPTION_KEY="${TELEGRAM_ENCRYPTION_KEY}" uv run manage.py compil
 RUN chown appuser:appuser /code
 USER appuser
 EXPOSE 8001
-CMD ["/bin/sh", "-c", "uv run python manage.py migrate && uv run granian --interface asgi config.asgi:application"]
+CMD ["/bin/sh", "-c", "uv run python manage.py migrate && uv run granian --interface asgi --host 0.0.0.0 --port 10000 config.asgi:application"]
